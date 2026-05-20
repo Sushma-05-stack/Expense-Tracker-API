@@ -9,7 +9,7 @@ function App() {
 
   const fetchResources = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/resources');
+      const response = await fetch('/api/resources');
       if (!response.ok) throw new Error('Failed to fetch data');
       const data = await response.json();
       setResources(data);
@@ -29,7 +29,7 @@ function App() {
     if (!window.confirm('Are you sure you want to delete this resource?')) return;
     
     try {
-      const response = await fetch(`http://localhost:5000/api/resources/${id}`, {
+      const response = await fetch(`/api/resources/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Failed to delete resource');
